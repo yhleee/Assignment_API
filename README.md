@@ -1,14 +1,31 @@
 # Assignment_API
 
 
-## 기본제약사항
+## 개발 환경 구성
+- Spring 
+- MySQL
+- JPA
 
-지원지자체 테이블 생성
-지자체 지원정보 Entity 생성 
+## 빌드 및 실행방법 
+
+## 문제분석
+csv 파일로 된 데이터에서 각 레코드를 데이터베이스에 저장하는 API개발
+검색, 조회, 수정 등 API기능명세에 있는 기능 구현
+각 기능별 Unit Test 개발
+
+제약사항
+- 지원지자체 테이블 생성하여 지자체 코드 생성
+- 지자체 지원정보 Entity 생성 (JPA 사용) 
+- ORM 사용
+- 모든 입/출력은 JSON 으로 .. 
+
+## 문제해결방법
 
 ## API명세서
 ### 1. 입력
-csv 파일의 데이터를 읽어 데이터베이스에 저장 
+csv 파일의 데이터를 읽어 데이터베이스에 저장 --> 명확한 요구사항 다시 한번 물어볼것..
+POST /add 한 후 text 로 입력..? 
+
 
 ### 2. 모든 지원 정보 조회
 <pre><code>GET /all</pre></code>
@@ -64,3 +81,32 @@ csv 파일의 데이터를 읽어 데이터베이스에 저장
    }
   ]
 </code></pre>
+
+### 4. 지자체 정보 수정
+<pre><code>PUT /region/{id} </pre></code>
+
+- Request 
+<pre><code>{
+   ""rate"": ""5.0""
+}</pre></code>
+
+- Response 
+<pre><code>SUCCESS { "code" : 200, "message" : "Success" }</pre></code>
+<pre><code>FAIL { "code" : 500, "message" : "Fail" }</pre></code>
+
+### 5. 최대지원한도 내림차순 검색 
+<pre><code>POST /highlimit </pre></code>
+
+- Request 
+<pre><code>{
+   ""number"": ""3""
+}</pre></code>
+
+- 데이터베이스 입력 시 highlimit 컬럼을 추가하여 text 에서 최대지원한도를 숫자로 저장 
+- 쿼리로 n 개의 지원 정보를 highlimit 컬럼의 내림차순으로 정렬하여 보여주기 
+
+### 6. 이차보전 최소 보전비율 검색
+<pre><code> GET/lowrate </pre></code>
+
+- 데이터베이스 입력 시 lowrate 컬럼을 추가하여 text 에서 최대지원한도를 숫자로 저장 
+
