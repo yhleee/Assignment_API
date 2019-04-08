@@ -29,7 +29,7 @@ POST /add 한 후 text 로 입력..?
 
 
 ### 2. 모든 지원 정보 조회
-<pre><code>GET /all</pre></code>
+<pre><code>GET /program/all </pre></code>
 
 <pre><code>
 [  
@@ -58,7 +58,7 @@ POST /add 한 후 text 로 입력..?
 </pre></code>
 
 ### 3. 지원지자체 이름으로 지원내역 검색
-<pre><code>POST /region </pre></code>
+<pre><code>POST /program/find </pre></code>
 
 - Request 
 <pre><code>
@@ -83,8 +83,8 @@ POST /add 한 후 text 로 입력..?
   ]
 </code></pre>
 
-### 4. 지자체 정보 수정
-<pre><code>PUT /region/{id} </pre></code>
+### 4. 지자체지원정보 수정
+<pre><code>PUT /program/{id} </pre></code>
 
 - Request 
 <pre><code>{
@@ -96,7 +96,7 @@ POST /add 한 후 text 로 입력..?
 <pre><code>FAIL { "code" : 500, "message" : "Fail" }</pre></code>
 
 ### 5. 최대지원한도 내림차순 검색 
-<pre><code>POST /highlimit </pre></code>
+<pre><code>POST /program/highlimit </pre></code>
 
 - Request 
 <pre><code>{
