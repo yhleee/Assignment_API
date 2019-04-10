@@ -8,8 +8,7 @@
 - opencsv 
 
 ## 빌드 및 실행방법 
-
-## DB
+- 작성중 .. 
 
 ## 문제분석
 csv 파일로 된 데이터에서 각 레코드를 데이터베이스에 저장하는 API개발
@@ -23,8 +22,13 @@ csv 파일로 된 데이터에서 각 레코드를 데이터베이스에 저장�
 - 모든 입/출력은 JSON 으로 .. 
 
 ## DB
-Program 
-Region
+Program 지자체 지원 정보 
+하나의 Region 명에 다양한 program 이 있을수 있다고 가정 
+Region_Code로 Region name 조회 
+
+Region 지자체 
+csv 에서 지자체 지원정보 저장 시 Region 테이블에 이미 있는 지자체인지 확인 후, 
+새로운 지자체라면 Region 에 저장 후 지자체 code 자동 생성 
 
 
 ## 문제해결방법
