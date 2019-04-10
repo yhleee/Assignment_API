@@ -2,11 +2,14 @@
 
 
 ## 개발 환경 구성
-- Spring 
-- MySQL
-- JPA
+- JDK 1.8
+- Spring 2.1.3
+- h2 database
+- opencsv 
 
 ## 빌드 및 실행방법 
+
+## DB
 
 ## 문제분석
 csv 파일로 된 데이터에서 각 레코드를 데이터베이스에 저장하는 API개발
@@ -19,17 +22,24 @@ csv 파일로 된 데이터에서 각 레코드를 데이터베이스에 저장�
 - ORM 사용
 - 모든 입/출력은 JSON 으로 .. 
 
+## DB
+Program 
+Region
+
+
 ## 문제해결방법
 작성중 .. 
+Region 
 
 ## API명세서
 ### 1. 입력
-csv 파일의 데이터를 읽어 데이터베이스에 저장 --> 명확한 요구사항 다시 한번 물어볼것..
-POST /add 한 후 text 로 입력..? 
+<pre><code>POST /loadCSV </pre></code>
 
+출력
+File upload is completed ! inserted row : 99
 
 ### 2. 모든 지원 정보 조회
-<pre><code>GET /program/all </pre></code>
+<pre><code>GET /all </pre></code>
 
 <pre><code>
 [  
@@ -58,7 +68,7 @@ POST /add 한 후 text 로 입력..?
 </pre></code>
 
 ### 3. 지원지자체 이름으로 지원내역 검색
-<pre><code>POST /program/find </pre></code>
+<pre><code>POST /find </pre></code>
 
 - Request 
 <pre><code>
@@ -84,7 +94,7 @@ POST /add 한 후 text 로 입력..?
 </code></pre>
 
 ### 4. 지자체지원정보 수정
-<pre><code>PUT /program/{id} </pre></code>
+<pre><code>PUT /{id} </pre></code>
 
 - Request 
 <pre><code>{
@@ -96,7 +106,7 @@ POST /add 한 후 text 로 입력..?
 <pre><code>FAIL { "code" : 500, "message" : "Fail" }</pre></code>
 
 ### 5. 최대지원한도 내림차순 검색 
-<pre><code>POST /program/highlimit </pre></code>
+<pre><code>POST /highlimit </pre></code>
 
 - Request 
 <pre><code>{
