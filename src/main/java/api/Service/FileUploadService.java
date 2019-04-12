@@ -28,6 +28,7 @@ public class FileUploadService {
 		 Program p = new Program();	  
 		
 		 p.setRegionCode(getRegionCodeStr(str[1]));
+		 p.setRegion(str[1]);
 		 p.setTarget(str[2]);
 		 p.setUsage(str[3]);
 		 p.setLimitation(str[4]);

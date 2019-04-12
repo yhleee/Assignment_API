@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
@@ -46,8 +47,6 @@ public class MainController {
 	@PostMapping(path="/loadCSV", headers = ("content-type=multipart/*;charset=EUC-KR"))
 		public @ResponseBody Iterable<Program> loadCSV(@RequestParam("file") MultipartFile inputFile) { 
 		
-		HttpHeaders headers = new HttpHeaders();
-
 		try {
 			InputStreamReader is = new InputStreamReader(inputFile.getInputStream(), "EUC-KR");
 			CSVReader reader = new CSVReader(is);
@@ -78,15 +77,16 @@ public class MainController {
 	//program 조회 -region명으로 검색 
 	@PostMapping(path="/program",consumes = MediaType.APPLICATION_JSON_VALUE,
 	        produces = MediaType.APPLICATION_JSON_VALUE)
-		public @ResponseBody Program apiTest(@RequestBody Map<String, Object> param) {  
+		public @ResponseBody Program viewProgram(@RequestBody Map<String, Object> param) {  
 		  String region = (String) param.get("region");
 
 		  Region r = regionRepository.findByName(region);
 		  String regionC = r.getRegionCode()+"";
 		  Program p = programRepository.findByRegionCode(regionC);
-		  System.out.println(p.getRegionCode()+" ");
+		 
 		  return p;
 		}
+	
 	
 	
 }
